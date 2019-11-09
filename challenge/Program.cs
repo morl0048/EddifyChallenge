@@ -57,21 +57,20 @@ namespace TetrisClient
                         my = p.X;
                     }
                 }
-                if (my < x)
+                if (my < y)
                 {
                     _controller.TryMoveRight();
                 }
-                else if (my > x)
+                else if (my > y)
                 {
                     _controller.TryMoveLeft();
                 }
-                else if (my == x)
+                else if (my == y)
                 {
                     _controller.TryMoveDown();
                 }
 
             }
-
 
 
 

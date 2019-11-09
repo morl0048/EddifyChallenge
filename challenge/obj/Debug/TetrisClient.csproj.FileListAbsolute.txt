@@ -10,3 +10,15 @@ D:\UQAR\session5_04_11_2019\EddifyChallenge\challenge\obj\Debug\TetrisClient.exe
 D:\UQAR\session5_04_11_2019\EddifyChallenge\challenge\obj\Debug\TetrisClient.pdb
 D:\UQAR\session5_04_11_2019\EddifyChallenge\challenge\Debug\System.Diagnostics.DiagnosticSource.dll
 D:\UQAR\session5_04_11_2019\EddifyChallenge\challenge\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\UQAR\session5_04_11_2019\EddifyChallenge\EddifyChallenge\challenge\Debug\TetrisClient.exe.config
+D:\UQAR\session5_04_11_2019\EddifyChallenge\EddifyChallenge\challenge\Debug\TetrisClient.exe
+D:\UQAR\session5_04_11_2019\EddifyChallenge\EddifyChallenge\challenge\Debug\TetrisClient.pdb
+D:\UQAR\session5_04_11_2019\EddifyChallenge\EddifyChallenge\challenge\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\UQAR\session5_04_11_2019\EddifyChallenge\EddifyChallenge\challenge\Debug\Tetris.dll
+D:\UQAR\session5_04_11_2019\EddifyChallenge\EddifyChallenge\challenge\Debug\TetrisWrapper.dll
+D:\UQAR\session5_04_11_2019\EddifyChallenge\EddifyChallenge\challenge\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\UQAR\session5_04_11_2019\EddifyChallenge\EddifyChallenge\challenge\Debug\TetrisWrapper.xml
+D:\UQAR\session5_04_11_2019\EddifyChallenge\EddifyChallenge\challenge\obj\Debug\TetrisClient.csprojAssemblyReference.cache
+D:\UQAR\session5_04_11_2019\EddifyChallenge\EddifyChallenge\challenge\obj\Debug\TetrisClient.csproj.CopyComplete
+D:\UQAR\session5_04_11_2019\EddifyChallenge\EddifyChallenge\challenge\obj\Debug\TetrisClient.exe
+D:\UQAR\session5_04_11_2019\EddifyChallenge\EddifyChallenge\challenge\obj\Debug\TetrisClient.pdb
