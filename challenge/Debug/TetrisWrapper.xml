@@ -1,0 +1,256 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TetrisWrapper</name>
+    </assembly>
+    <members>
+        <member name="M:TetrisWrapper.Helpers.PointCalculator.CalculatePointsAccordingToBlockInGrid(System.Boolean[0:,0:])">
+            <summary>
+            Calculate a game score according to the number of bloc present in the game grid
+            </summary>
+            <param name="_currentGrid"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TetrisWrapper.TetrominoShape">
+            <summary>
+             
+             Default configuration :
+            I  _    <BR/>
+              | |   <BR/>
+              | |   <BR/>
+              | |   <BR/>
+              |_|   <BR/>
+             <BR/>
+             J  _       <BR/>
+              | |___   <BR/>
+              |_____|  <BR/>
+             <BR/>
+             L _____   <BR/>
+              |  ___|  <BR/>
+              |_|      <BR/>
+             <BR/>
+             O ___    <BR/> 
+              |   |   <BR/>  
+              |___|   <BR/>
+             <BR/>
+             S  _____    <BR/>
+              __|  __|   <BR/>
+             |____|      <BR/>
+             <BR/>
+             T __          <BR/>
+              |  |__       <BR/>
+              |   __|      <BR/>
+              |__|         <BR/>
+             <BR/>
+             Z ____          <BR/>
+             |__  |__       <BR/>
+                |____|      <BR/>
+             </summary>
+        </member>
+        <member name="F:TetrisWrapper.TetrominoShape.I">
+             Default configuration :
+            I  _    <BR/>
+              | |   <BR/>
+              | |   <BR/>
+              | |   <BR/>
+              |_|   <BR/>
+        </member>
+        <member name="F:TetrisWrapper.TetrominoShape.J">
+            J  _       <BR/>
+              | |___   <BR/>
+              |_____|  <BR/>
+        </member>
+        <member name="F:TetrisWrapper.TetrominoShape.L">
+            L _____   <BR/>
+             |  ___|  <BR/>
+             |_|      <BR/>
+        </member>
+        <member name="F:TetrisWrapper.TetrominoShape.O">
+            O ___    <BR/> 
+             |   |   <BR/>  
+             |___|   <BR/> 
+        </member>
+        <member name="F:TetrisWrapper.TetrominoShape.S">
+            S  _____    <BR/>
+             __|  __|   <BR/>
+            |____|      <BR/>
+              
+        </member>
+        <member name="F:TetrisWrapper.TetrominoShape.T">
+            T __          <BR/>
+             |  |__       <BR/>
+             |   __|      <BR/>
+             |__|         <BR/>
+        </member>
+        <member name="F:TetrisWrapper.TetrominoShape.Z">
+                Z ____          <BR/>
+                 |__  |__       <BR/>
+                    |____|      <BR/>
+        </member>
+        <member name="P:TetrisWrapper.IPiece.Shape">
+            <summary>
+            The shape of the block. The possible shapes are I, J, L, O, S, T and Z
+            </summary>
+        </member>
+        <member name="P:TetrisWrapper.IPiece.Id">
+            <summary>
+            Unique identifier
+            </summary>
+        </member>
+        <member name="P:TetrisWrapper.IPiece.RotationIndex">
+            <summary>
+            [0-3] current rotation of the piece
+            </summary>
+        </member>
+        <member name="P:TetrisWrapper.IPiece.Blocks">
+            <summary>
+            Positions of the blocks for the piece in the grid
+            </summary>
+        </member>
+        <member name="M:TetrisWrapper.IPiece.SimulateRotation(System.Int32)">
+            <summary>
+            Simulate a rotation without actually moving the piece; used to know where the current piece block would end if a rotation was made
+            </summary>
+            <param name="_rotationTimes">The number of rotation to simulate ( 1 rotation turns the piece 90 degrees )</param>
+            <returns>The simulated position of the rotated blocks</returns>
+        </member>
+        <member name="T:TetrisWrapper.IState">
+            <summary>
+            An immutable representation of the game state at the begining of a tick. <BR/>
+            This version is NOT updated as the algorithm inputs commands. A new instance is generated each tick. 
+            </summary>
+        </member>
+        <member name="P:TetrisWrapper.IState.CurrentPiece">
+            <summary>
+            Corresponds to the currently playable piece. This piece is not present in the grid returned from the GetGrid() method.
+            </summary>
+        </member>
+        <member name="M:TetrisWrapper.IState.GetRow(System.Int32)">
+            <summary>
+            Gets an enumerable of Boolean representing the row at index _index. Like the grid, the position containing a block
+            will have a value of true and the position with no block will have a value of false
+            </summary>
+            <param name="_index">The index of the row to get. The index ranges from 0 to 29</param>
+            <returns></returns>
+        </member>
+        <member name="M:TetrisWrapper.IState.GetColumn(System.Int32)">
+            <summary>
+            Gets an enumerable of Boolean representing the column at index _index. Like the grid, the position containing a block
+            will have a value of true and the position with no block will have a value of false
+            </summary>
+            <param name="_index">The index of the column to get. The index ranges from 0 to 19</param>
+            <returns></returns>
+        </member>
+        <member name="M:TetrisWrapper.IState.GetBlock(System.Int32,System.Int32)">
+            <summary>
+            Returns whether the position ( x, y ) contains a block ( true ), or is free ( false )
+            </summary>
+            <param name="_x">The column index; ranges from 0 to 19</param>
+            <param name="_y">The row index; ranges from 0 to 29</param>
+            <returns>
+            true if the position contains a block
+            false of the position is free
+            </returns>
+        </member>
+        <member name="M:TetrisWrapper.IState.GetGrid">
+            <summary>
+            A reference to a grid showing whether each position is occupied by a piece or not.
+            The current piece appears in it.   <BR/>
+            Positions are accessed in X,Y order. So that the bottom right corner is GameGrid[19, 29]   <BR/>
+            <BR/>
+            Grid coordinates :          <BR/>
+            0,0 -----------------> 0,19 <BR/>
+              |                         <BR/>
+              |                         <BR/>
+              |                         <BR/>
+              V                         <BR/>
+            29,0                        <BR/>
+            </summary>
+        </member>
+        <member name="P:TetrisWrapper.IState.GridWidth">
+            <summary>
+            Gets the width of the grid. Spoiler alert, it's 19
+            </summary>
+        </member>
+        <member name="P:TetrisWrapper.IState.GridHeight">
+            <summary>
+            Gets the width of the grid. Spoiler alert, it's 29
+            </summary>
+        </member>
+        <member name="M:TetrisWrapper.ITetrisAPI.Run(System.Action{TetrisWrapper.IState,TetrisWrapper.ITetrisControllerAPI})">
+            <summary>
+            Run the application with an action to execute every game tick
+            </summary>
+            <param name="_onTick">The action to run every game tick</param>
+        </member>
+        <member name="P:TetrisWrapper.ITetrisControllerAPI.RemainingMoves">
+            <summary>
+            Returns the number of move that the controller can make during this tick
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TetrisWrapper.ITetrisControllerAPI.TryMoveLeft">
+            <summary>
+            Moves the current piece from one position to the left
+            </summary>
+            <returns>Whether the movement was successful or not</returns>
+        </member>
+        <member name="M:TetrisWrapper.ITetrisControllerAPI.TryMoveRight">
+            <summary>
+            Moves the current piece from one position to the right
+            </summary>
+            <returns>Whether the movement was successful or not</returns>
+        </member>
+        <member name="M:TetrisWrapper.ITetrisControllerAPI.TryMoveDown">
+            <summary>
+            Moves the current piece from one position down
+            </summary>
+            <returns>Whether the movement was successful or not</returns>
+        </member>
+        <member name="M:TetrisWrapper.ITetrisControllerAPI.TryRotateShape">
+            <summary>
+            Rotates the current piece clockwise for 90 degrees
+            </summary>
+            <returns>Whether the movement was successful or not</returns>
+        </member>
+        <member name="M:TetrisWrapper.TetrisWrapper.#ctor(System.String,System.Int32,System.String,TetrisWrapper.GameSpeed)">
+            <summary>
+            Create a new Tetris wrapper
+            </summary>
+            <param name="_teamId">A unique identifier</param>
+            <param name="_nbBlocks">[Optional] Maximum number of blocks per game</param>
+            <param name="_seed">[Optional] Random seed so the blocks are always the same</param>
+        </member>
+        <member name="M:TetrisWrapper.TetrisWrapper.Run(System.Action{TetrisWrapper.IState,TetrisWrapper.ITetrisControllerAPI})">
+            <summary>
+            At launch, the client will run the wrapper.
+            It will instantiate the view, subscribe to events and retrieve the Tetris Game.
+            </summary>
+        </member>
+        <member name="M:TetrisWrapper.TetrisWrapper.GetState">
+            <summary>
+            Return the current state of the Game. This include the state of the grid and the current shape.
+            </summary>
+        </member>
+        <member name="M:TetrisWrapper.TetrisWrapper.GetController">
+            <summary>
+            Get the controller that simulates user inputs in the game.
+            </summary>
+            <returns>A new controller</returns>
+        </member>
+        <member name="M:TetrisWrapper.TetrisWrapper.GetGameGrid(Tetris.Game)">
+            <summary>
+            Return the game grid where False is an empty square
+            </summary>
+            <param name="_game">The game object</param>
+            <returns>The game grid</returns>
+        </member>
+        <member name="M:TetrisWrapper.TetrisWrapper.ShapeToPiece(Tetris.Shape)">
+            <summary>
+            Convert a game shape to a piece with a unique trackable Id
+            </summary>
+            <param name="_shape">A game shape</param>
+            <returns>The corresponding piece</returns>
+        </member>
+    </members>
+</doc>
